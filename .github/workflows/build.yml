@@ -54,7 +54,7 @@ jobs:
             gradle-${{ runner.os }}
       
       - name: Build APK
-        working-directory: ./dmdeleter
+        working-directory: .
         run: |
           buildozer android debug
       
@@ -62,14 +62,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dmdel-apk
-          path: dmdeleter/bin/*.apk
+          path: bin/*.apk
           retention-days: 30
       
       - name: Create Release (on tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
-          files: dmdeleter/bin/*.apk
+          files: bin/*.apk
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
