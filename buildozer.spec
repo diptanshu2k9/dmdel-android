@@ -36,7 +36,7 @@ version = 1.0.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,requests,urllib3,certifi,charset_normalizer,idna
+requirements = python3==3.10,kivy,kivymd,requests,urllib3,certifi,charset_normalizer,idna
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -104,13 +104,13 @@ android.api = 34
 android.minapi = 23
 
 # (int) Android SDK version to use
-#android.sdk = 34
+android.sdk = 34
 
 # (str) Android NDK version to use
-#android.ndk = 25b
+android.ndk = 27c
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
-#android.ndk_api = 23
+android.ndk_api = 23
 
 # (bool) Use --private data storage (True) or --dir public storage (False)
 #android.private_storage = True
@@ -224,10 +224,10 @@ android.enable_androidx = True
 #p4a.hook =
 
 # (str) Filename to the bootstrap to use for p4a
-#p4a.bootstrap = sdl2
+p4a.bootstrap = sdl2
 
-# (int) port number to specify an explicit --port= p4a argument (eg for bootstrap flask)
-#p4a.port =
+# (str) python-for-android specific extra args
+p4a.extra_args = --extra-pip-packages=kivymd
 
 # Control passing the --use-setup-py vs --ignore-setup-py to p4a (in "installRequirements" command)
 #p4a.use_setup_py = False
